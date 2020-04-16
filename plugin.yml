@@ -9,7 +9,7 @@ author: hotiovip
 description: Example plugin showing the new API
 website: https://github.com/pmmp/ExamplePlugin
 commands:
- greet:
+ saluta:
   description: Saluta
   usage: "/saluta"
   permission: exampleplugin.command.saluta
