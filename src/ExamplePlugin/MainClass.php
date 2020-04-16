@@ -21,7 +21,6 @@ use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\event\player\PlayerPreLoginEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\lang\TextContainer;
-use pocketmine\lang\TranslationContainer;
 use pocketmine\Player;
 
 class MainClass extends PluginBase{
