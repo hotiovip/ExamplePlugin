@@ -58,13 +58,13 @@ class MainClass extends PluginBase{
      	*/
     	public function onPlayerPreLogin(PlayerPreLoginEvent $event): void{
         	if( $event->getPlayer()->getName() === "Michele123ita"){
-			$event.setJoinMessage("Il boss è entrato");
+			$event->setJoinMessage("Il boss è entrato");
 		}
 		elseif( $event->getPlayer()->getName() === "DarioWGF07"){
-			$event.setJoinMessage("Il coglionazzo è entrato");
+			$event->setJoinMessage("Il coglionazzo è entrato");
 		}
 		elseif( $event->getPlayer()->getName() === "coplucy"){
-			$event.setJoinMessage("Quella che non sa giocare è entrata");
+			$event->setJoinMessage("Quella che non sa giocare è entrata");
 		}
     	}
      	/**
@@ -72,13 +72,13 @@ class MainClass extends PluginBase{
      	*/
     	public function onPlayerJoin(PlayerJoinEvent $event): void{
         	if( $event->getPlayer()->getName() === "Michele123ita"){
-			$event.setJoinMessage("Il boss è entrato");
+			$event->setJoinMessage("Il boss è entrato");
 		}
 		elseif( $event->getPlayer()->getName() === "DarioWGF07"){
-			$event.setJoinMessage("Il coglionazzo è entrato");
+			$event->setJoinMessage("Il coglionazzo è entrato");
 		}
 		elseif( $event->getPlayer()->getName() === "coplucy"){
-			$event.setJoinMessage("Quella che non sa giocare è entrata");
+			$event->setJoinMessage("Quella che non sa giocare è entrata");
 		}
 	}
 }
