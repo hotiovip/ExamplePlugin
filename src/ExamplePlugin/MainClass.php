@@ -44,6 +44,23 @@ class MainClass extends PluginBase{
 				return false;
 		}
 	}
+	/**
+     	* @param PlayerPreLoginEvent $event
+     	*
+     	* @priority MONITOR
+     	* @ignoreCancelled true
+     	*/
+    	public function onPlayerPreLogin(PlayerPreLoginEvent $event): void{
+        	if( $event->getPlayer()->getName() === "Michele123ita"){
+			$event.setJoinMessage("Il boss è entrato");
+		}
+		elseif( $event->getPlayer()->getName() === "DarioWGF07"){
+			$event.setJoinMessage("Il coglionazzo è entrato");
+		}
+		elseif( $event->getPlayer()->getName() === "coplucy"){
+			$event.setJoinMessage("Quella che non sa giocare è entrata");
+		}
+    	}
      	/**
      	* @param PlayerJoinEvent $event
      	*/
