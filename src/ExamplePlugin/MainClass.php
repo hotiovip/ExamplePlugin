@@ -8,6 +8,15 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
+use pocketmine\event\player\PlayerBedEnterEvent;
+use pocketmine\event\player\PlayerChatEvent;
+use pocketmine\event\player\PlayerCommandPreprocessEvent;
+use pocketmine\event\player\PlayerDeathEvent;
+use pocketmine\event\player\PlayerJoinEvent;
+use pocketmine\event\player\PlayerMoveEvent;
+use pocketmine\event\player\PlayerPreLoginEvent;
+use pocketmine\event\player\PlayerQuitEvent;
+use pocketmine\Player;
 
 class MainClass extends PluginBase{
 
@@ -33,6 +42,20 @@ class MainClass extends PluginBase{
 				return true;
 			default:
 				return false;
+		}
+	}
+     	/**
+     	* @param PlayerJoinEvent $event
+     	*/
+    	public function onPlayerJoin(PlayerJoinEvent $event): void{
+        	if( $event->getPlayer()->getName() === "Michele123ita"){
+			$event.setJoinMessage("Il boss è entrato");
+		}
+		elseif( $event->getPlayer()->getName() === "DarioWGF07"){
+			$event.setJoinMessage("Il coglionazzo è entrato");
+		}
+		elseif( $event->getPlayer()->getName() === "coplucy"){
+			$event.setJoinMessage("Quella che non sa giocare è entrata");
 		}
 	}
 }
