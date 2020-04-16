@@ -53,7 +53,7 @@ class MainClass extends PluginBase{
      	* @param PlayerJoinEvent $event
      	*/
     	public function onPlayerJoin(PlayerJoinEvent $event): void{
-        	if( $event->getPlayer()->getName() === "Michele123ita"){
+        	if( $event->getPlayer()->getName() === "MICHELE123ITA"){
 			$event->setJoinMessage("Il boss è entrato");
 		}
 		elseif( $event->getPlayer()->getName() === "DarioWGF07"){
