@@ -6,14 +6,14 @@ api: 3.0.0
 
 load: POSTWORLD
 author: hotiovip
-description: Example plugin showing the new API
+description: Bank plugin to borrow money!
 website: https://github.com/pmmp/ExamplePlugin
 commands:
  saluta:
-  description: Saluta
-  usage: "/saluta"
-  permission: exampleplugin.command.saluta
+  description: usa banca GUI
+  usage: "/banca"
+  permission: exampleplugin.command.banca
 permissions:
  exampleplugin.command.example:
-  description: "Permette di usare questo comando"
+  description: "Permette di usare il comand banca"
   default: true
