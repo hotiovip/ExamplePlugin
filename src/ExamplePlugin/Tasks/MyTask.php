@@ -12,8 +12,6 @@
                     parent::__construct($main); // Used to meet pocketmine requirements for the tasks. You can retrieve your main class at anytime and use it's methods on your class by using $this->getOwner()
                     $this->playername = $playername; // So we can retreive the player for later.
                 }
-
-
                 // Then we'll create an onRun funtion wich will be called when the time has past to the execution of the task
                 public function onRun(int $tick) { // $tick is the current server tick when the task executes
                     $player = $this->getOwner()->getServer()->getPlayer($this->playername()); // This retreive the main class with $this->getOwner() then asks the server for the player with the name $this->playername
