@@ -62,6 +62,8 @@ class MainClass extends PluginBase implements Listener{
           			}
           			$sender->getInventory()->addItem(Item::get(364,0,$args[0]));
           			$sender->sendMessage("Hai ricevuto". count($args[0]) ."bistecche!");
+				$task = new tasks\MyTask($this, $sender->getName()); // Create the new class Task by calling
+                		$this->getServer()->getScheduler()->scheduleRepeatingTask($task, 10*20); // Counted in ticks (1 second = 20 ticks)
      			}
 		}
 		return true;
