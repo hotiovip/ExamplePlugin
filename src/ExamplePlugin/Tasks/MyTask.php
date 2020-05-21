@@ -1,6 +1,6 @@
 <?php // As always when you start a PHP file
 
-namespace ExamplePlugin\tasks; // Use the same namespace as in your first file but add a \tasks who symbolise that this file is in the subfolder "tasks"
+namespace ExamplePlugin\Tasks; // Use the same namespace as in your first file but add a \tasks who symbolise that this file is in the subfolder "tasks"
 
 use pocketmine\scheduler\Task; // This is the class that your task will extends to be a plugin task
 use ExamplePlugin\MainClass; // This will allow us to use our main class. It is a required argument for a plugin task.
