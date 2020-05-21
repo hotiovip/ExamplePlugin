@@ -3,12 +3,12 @@
              namespace ExamplePlugin\tasks; // Use the same namespace as in your first file but add a \tasks who symbolise that this file is in the subfolder "tasks"
 
              use pocketmine\scheduler\Task; // This is the class that your task will extends to be a plugin task
-             use ExamplePlugin\Main; // This will allow us to use our main class. It is a required argument for a plugin task.
+             use ExamplePlugin\MainClass; // This will allow us to use our main class. It is a required argument for a plugin task.
              
              class ExamplePlugin\tasks\MyTask extends Task { // Remember that your task must have the same name as your file !
 
                 // First we need a __construct function which is used when you create a class to set default variables, ect...
-                public function __construct(Main $main, string $playername) { // The arguments you define here depends on what do you want to do exept for your base.
+                public function __construct(MainClass $main, string $playername) { // The arguments you define here depends on what do you want to do exept for your base.
                     parent::__construct($main); // Used to meet pocketmine requirements for the tasks. You can retrieve your main class at anytime and use it's methods on your class by using $this->getOwner()
                     $this->playername = $playername; // So we can retreive the player for later.
                 }
