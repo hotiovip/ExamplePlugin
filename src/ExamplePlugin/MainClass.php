@@ -30,6 +30,9 @@ class MainClass extends PluginBase implements Listener{
 	public function onEnable() : void{
 		$this->getServer()->getPluginManager()->registerEvents($this,$this);
 		$this->getLogger()->info(TextFormat::DARK_GREEN . "Mod abilitata!");
+		$this->saveDefaultConfig(); // Saves config.yml if not created.
+		$this->reloadConfig(); // Fix bugs sometimes by getting configs values
+		$keyFromConfig = $this->getConfig()->get("key"); // This will return the element "key" from the config.
 	}
 
 	public function onDisable() : void{
@@ -62,5 +65,10 @@ class MainClass extends PluginBase implements Listener{
      			}
 		}
 		return true;
+	}
+	
+	public function SaveData(){
+		$this->getConfig()->set("key", "example"); // This will set the element "key" of the config to example.
+		$this->getConfig()->save(); // Saves the config
 	}
 }
