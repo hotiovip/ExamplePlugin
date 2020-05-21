@@ -2,7 +2,7 @@
 
              namespace ExamplePlugin\tasks; // Use the same namespace as in your first file but add a \tasks who symbolise that this file is in the subfolder "tasks"
 
-             use pocketmine\scheduler\PluginTask; // This is the class that your task will extends to be a plugin task
+             use pocketmine\scheduler\Task; // This is the class that your task will extends to be a plugin task
              use ExamplePlugin\Main; // This will allow us to use our main class. It is a required argument for a plugin task.
              
              class MyTask extends PluginTask { // Remember that your task must have the same name as your file !
