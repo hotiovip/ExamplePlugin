@@ -19,4 +19,4 @@
                         $player->sendMessage("Sei stupido!"); // Sends him a message !
                     }
                 }
-             }.
+             }
