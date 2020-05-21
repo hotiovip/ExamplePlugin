@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ExamplePlugin;
 
+use pocketmine\plugin\PluginBase;
 // Event when Player Joins
 use pocketmine\event\player\PlayerJoinEvent;
 // Event When Player Quits
