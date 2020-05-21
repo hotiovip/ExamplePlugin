@@ -5,7 +5,7 @@
              use pocketmine\scheduler\Task; // This is the class that your task will extends to be a plugin task
              use ExamplePlugin\Main; // This will allow us to use our main class. It is a required argument for a plugin task.
              
-             class MyTask extends PluginTask { // Remember that your task must have the same name as your file !
+             class MyTask extends Task { // Remember that your task must have the same name as your file !
 
                 // First we need a __construct function which is used when you create a class to set default variables, ect...
                 public function __construct(Main $main, string $playername) { // The arguments you define here depends on what do you want to do exept for your base.
