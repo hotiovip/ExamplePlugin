@@ -4,63 +4,63 @@ declare(strict_types=1);
 
 namespace ExamplePlugin;
 
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
-use pocketmine\plugin\PluginBase;
-use pocketmine\utils\TextFormat;
-use pocketmine\event\entity\EntityDamageByEntityEvent;
-use pocketmine\event\entity\EntityDamageEvent;
-use pocketmine\event\entity\EntityLevelChangeEvent;
-use pocketmine\event\entity\EntityTeleportEvent;
-use pocketmine\event\player\PlayerBedEnterEvent;
-use pocketmine\event\player\PlayerChatEvent;
-use pocketmine\event\player\PlayerCommandPreprocessEvent;
-use pocketmine\event\player\PlayerDeathEvent;
+// Event when Player Joins
 use pocketmine\event\player\PlayerJoinEvent;
-use pocketmine\event\player\PlayerMoveEvent;
-use pocketmine\event\player\PlayerPreLoginEvent;
+// Event When Player Quits
 use pocketmine\event\player\PlayerQuitEvent;
-use pocketmine\lang\TextContainer;
+// Player "class"
 use pocketmine\Player;
+// Server "class"
+use pocketmine\Server;
+// Event Listener
+use pocketmine\event\Listener;
+// Text Format formats text and changes Color
+use pocketmine\utils\TextFormat;
+// Command
+use pocketmine\command\Command;
+// Person who does command
+use pocketmine\command\CommandSender;
 
-class MainClass extends PluginBase{
+class MainClass extends PluginBase implements Listener{
 
 	public function onLoad() : void{
-		$this->getLogger()->info(TextFormat::WHITE . "Mod caricata!");
+		$this->getLogger()->info(TextFormat::WHITE . "Caricamento Mod");
 	}
 
 	public function onEnable() : void{
-		$this->getServer()->getPluginManager()->registerEvents(new ExampleListener($this), $this);
-		$this->getScheduler()->scheduleRepeatingTask(new BroadcastTask($this->getServer()), 120);
+		$this->getServer()->getPluginManager()->registerEvents($this,$this);
 		$this->getLogger()->info(TextFormat::DARK_GREEN . "Mod abilitata!");
 	}
 
 	public function onDisable() : void{
 		$this->getLogger()->info(TextFormat::DARK_RED . "Mod disabilitata!");
 	}
-
-	public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
-		switch($command->getName()){
-			case "saluta":
-				$sender->sendMessage($sender->getName() . "é un coglione");
-
-				return true;
-			default:
-				return false;
-		}
+	
+	public function onJoin(PlayerJoinEvent $event){
+   		$player = $event->getPlayer();
+   		$name = $player->getName();
+   		$this->getServer()->broadcastMessage(TextFormat::GREEN."$name è diventato uno di noi!");
 	}
-     	/**
-     	* @param PlayerJoinEvent $event
-     	*/
-    	public function onPlayerJoin(PlayerJoinEvent $event): void{
-        	if( $event->getPlayer()->getName() === "MICHELE123ITA"){
-			$event->setJoinMessage("Il boss è entrato");
+	
+	public function onQuit(PlayerQuitEvent $event){
+		$player = $event->getPlayer();
+   		$name = $player->getName();
+   		$this->getServer()->broadcastMessage(TextFormat::RED."$name ci ha lasciati! Che pezzo di *****!");
+	}
+	
+	public function onCommand(CommandSender $sender,Command $cmd,string $label,array $args) : bool{
+		if($cmd->getName() == "test"){
+     			if(!$sender instanceof Player){ // Basically this checks if the Command Sender is NOT a player
+          			$sender->sendMessage("Esegui questo comando IN-GAME!"); // For Console Command Sender
+     			}       
+			else{ //if command sender is not a CONSOLE
+				if(!isset($args[0]) or (is_int($args[0]) and $args[0] > 0)) { // Check if argument 0 is an integer and is more than 0.
+                			$args[0] = 4; // Defining $args[0] with value 4
+          			}
+          			$sender->getInventory()->addItem(Item::get(364,0,$args[0]));
+          			$sender->sendMessage("Hai ricevuto". count($args[0]) ."bistecche!");
+     			}
 		}
-		elseif( $event->getPlayer()->getName() === "DarioWGF07"){
-			$event->setJoinMessage("Il coglionazzo è entrato");
-		}
-		elseif( $event->getPlayer()->getName() === "coplucy"){
-			$event->setJoinMessage("Quella che non sa giocare è entrata");
-		}
+		return true;
 	}
 }
