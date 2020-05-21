@@ -21,6 +21,8 @@ use pocketmine\utils\TextFormat;
 use pocketmine\command\Command;
 // Person who does command
 use pocketmine\command\CommandSender;
+// Item "Class"
+use pocketmine\item;
 
 class MainClass extends PluginBase implements Listener{
 
